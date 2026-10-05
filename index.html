@@ -191,7 +191,7 @@ const defaultTeamNames=['Team 1','Team 2','Team 3'];
 let teamNames=[...defaultTeamNames];
 let bonusClaims={};
 const repeatableNames=new Set(['Big Fish','Obor or Bryophyta Unique','Woodcutting XP','Fishing XP','Vale Spool/Knife/Mask','Barrows','Thieving XP','Wildy Wards','Enhanced Tele Seed/Blood Shard','Zenyte','Synapse']);
-const tilePointValues={'#8b8b8b':1,'#2e9b4f':2,'#c9a227':3,'#8a45c2':4,'#20d7e8':5,'#d62828':6};
+const tilePointValues={'#8b8b8b':1,'#2e9b4f':2,'#20d7e8':3,'#8a45c2':4,'#c9a227':5,'#d62828':6};
 function getTilePoints(tile){const border=(tile.getAttribute('style')||'').match(/--tile-border:\s*(#[0-9a-fA-F]{6})/);return border?Number(tilePointValues[border[1].toLowerCase()]||0):0;}
 function getTeamPoints(team){let total=0;tiles.forEach(t=>{total+=getTileCount(team,+t.dataset.tile)*getTilePoints(t);});Object.values(bonusClaims).forEach(claim=>{if(claim&&Number(claim.team)===team)total+=10;});return total;}
 let hiddenTiles=new Set(),hiddenSelection=new Set(),hiddenSelectionLoaded=false,active=0,statsTeam=0,pendingTile=null;
